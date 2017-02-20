@@ -1,0 +1,13 @@
+echo hello #world
+ls && echo hello world #testing comments on mulitple commands
+echo testing #&& echo should not print
+mkdir #test_directory
+mkdir directory1 #create a test directory
+rm -r directory1 #remove the directory
+echo first && echo second # echo both statements
+ech || ps # ls -a
+ls #### test comment
+echo #commented echo test
+touch file.cpp #testing touch with a file name
+rm file.cpp #remove the file
+exit

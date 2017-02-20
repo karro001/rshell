@@ -1,0 +1,6 @@
+echo hello #echo world          # only print hello
+echo hello #&& echo world       # only print hello
+echo hello && echo world #&& echo !!! # only print hello and world
+echo hello #; echo world         # only print hello
+echo hello #|| echo world       # only print hello
+exit

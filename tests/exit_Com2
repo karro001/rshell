@@ -1,0 +1,2 @@
+echo exiting with comments #testing exit w/ comments
+exit #exit now
