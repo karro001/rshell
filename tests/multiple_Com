@@ -1,0 +1,12 @@
+echo hello world || ls -a || ps #should only execute echo command
+mkdir test_directory && echo made a test directory && ls
+rm -r test_directory; echo removed that directory; ls
+ls -l; ps
+touch test_file; echo made a test file; ls
+rm test_file; echo removed that file; ls
+echwad || echo testing || mkdir test_dir
+ps && ls -r
+cat file_nonexistant || echo testing invalid cat
+ls -q; ps
+echow || mkdir || ls
+exit
