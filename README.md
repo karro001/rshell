@@ -35,7 +35,15 @@ mkdir || cat nonexistantfile || echo First two commands failed
 ```
 
 #Bugs & Limitations
-1. Rshell cannot utilize the command "cd"
+1. When using the test command, paths must start with a backslash i.e.
+  ```
+  test -e /test/file/path
+  ```
+  will work but,
+  ```
+  test -e test/file/path
+  ```
+  will not execute
 
 2. The command echo will be treated as a valid command even with no accompanying message i.e.
   ```
