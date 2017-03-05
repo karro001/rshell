@@ -75,7 +75,12 @@ $ mkdir || cat nonexistantfile || echo First two commands failed
   $ failcommand || (echo hello && ls)
   $ (echo hi && echo hello) || (echo yes && echo no)
   ```
-  * these commands with produce an error or the wrong output
+  * these commands will produce an error or the wrong output
+  * In addition the parentheses cannot be used anywhere but for declaring precedence i.e.
+  ```
+  $ echo (); echo (hello); echo hello();
+  ```
+        * these commands will fail the check for a balanced number of parentheses however rshell will continue to run and prompt for a new user input
   
 #How to run
 ```
