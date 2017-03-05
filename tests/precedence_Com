@@ -1,0 +1,7 @@
+(echo HELLO?)
+(echo YES && ls -a) || echo NO
+(echo hello && ls
+((echo hello) && ls
+(echo YES && echo NO) || echo done
+(ech || echo HELLO) && ls
+exit
