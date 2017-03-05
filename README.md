@@ -51,8 +51,8 @@ $ mkdir || cat nonexistantfile || echo First two commands failed
   $ [ -e /bin ] echo hi && echo hello
   ```
   * both of these commands will run normally since our user implemented test truncates
-      1. anything after the space after the end of the path when using "test"
-      2. anything after the ending bracket when using brackets
+      1. anything after the space after the end of the path up til the next connector when using "test"
+      2. anything after the ending bracket up til the next connector when using brackets
 
 3. Connecters must be written correctly such as: "&&", "||", ";" otherwise is will be treated as an input into aa command i.e
   ```
