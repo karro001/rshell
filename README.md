@@ -27,42 +27,47 @@ In addition commands can be chained together using connectors:
 * ;
 * #
 ```
-echo Hello; echo world!
+$ echo Hello; echo world!
 
-ls && mkdir Test_Folder && echo made folder && ls
+$ ls && mkdir Test_Folder && echo made folder && ls
 
-mkdir || cat nonexistantfile || echo First two commands failed
+$ mkdir || cat nonexistantfile || echo First two commands failed
 ```
 
 #Bugs & Limitations
 1. When using the test command, paths must start with a backslash i.e.
   ```
-  test -e /test/file/path
+  $ test -e /test/file/path
   ```
   will work but,
   ```
-  test -e test/file/path
+  $ test -e test/file/path
   ```
   will not execute
 
-2. The command echo will be treated as a valid command even with no accompanying message i.e.
+2. Connecters must be written correctly such as: "&&", "||", ";" otherwise is will be treated as an input into aa command i.e
   ```
-  $ echo
+  $ echo hi & ls && echo hello
   ```
-  * this will print out a blank into the terminal
+  * this will print out "hi & ls" then the next correct connector is reached and the command proceeds as normal
+  ```
+  $ ls & echo hi && echo hello
+  ```
+  * here ls will try to display the contents of directories with the names "&", "echo", and "hi" up until the next correct connector where the command proceeds normally again
   
 3. Precedence operators will only work when at the very front of the command, of if it encapsulates the entire command i.e
   ```
-  (echo hi && failcommand) || echo hello
-  (echo yes && ls || echo no && echo hello)
+  $ (echo hi && failcommand) || echo hello
+  $ (echo yes && ls || echo no && echo hello)
   ```
-  * these command will run normally however,
+  * these commands will run normally however,
   
   ```
-  failcommand || (echo hello && ls)
-  (echo hi && echo hello) || (echo yes && echo no)
+  $ failcommand || (echo hello && ls)
+  $ (echo hi && echo hello) || (echo yes && echo no)
   ```
-  * thse command with produce and error or the wrong output
+  * these commands with produce an error or the wrong output
+  
 #How to run
 ```
 $ git clone https://github.com/yourusername/rshell.git
