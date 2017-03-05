@@ -79,9 +79,9 @@ $ mkdir || cat nonexistantfile || echo First two commands failed
   * these commands will produce an error or the wrong output
   * In addition the parentheses cannot be used anywhere but for declaring precedence i.e.
   ```
-  $ echo (); echo (hello); echo hello();
+  $ echo (); echo (hello); echo hello(); echo )(
   ```
-        * these commands will fail the check for a balanced number of parentheses however rshell will continue to run and prompt for a new user input
+        * these commands will produce errors
   
 #How to run
 ```
