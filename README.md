@@ -45,7 +45,16 @@ $ mkdir || cat nonexistantfile || echo First two commands failed
   ```
   will not execute
 
-2. Connecters must be written correctly such as: "&&", "||", ";" otherwise is will be treated as an input into aa command i.e
+2. When using the test command, there is an issue with concatenating its string i.e.
+  ```
+  $ test -e /bin echo hi && echo hello
+  $ [ -e /bin ] echo hi && echo hello
+  ```
+  * both of these commands will run normally since our user implemented test truncates
+      1. anything after the space after the end of the path when using "test"
+      2. anything after the ending bracket when using brackets
+
+3. Connecters must be written correctly such as: "&&", "||", ";" otherwise is will be treated as an input into aa command i.e
   ```
   $ echo hi & ls && echo hello
   ```
@@ -55,7 +64,7 @@ $ mkdir || cat nonexistantfile || echo First two commands failed
   ```
   * here ls will try to display the contents of directories with the names "&", "echo", and "hi" up until the next correct connector where the command proceeds normally again
   
-3. Precedence operators will only work when at the very front of the command, of if it encapsulates the entire command i.e
+4. Precedence operators will only work when at the very front of the command, of if it encapsulates the entire command i.e
   ```
   $ (echo hi && failcommand) || echo hello
   $ (echo yes && ls || echo no && echo hello)
