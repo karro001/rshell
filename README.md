@@ -64,16 +64,17 @@ $ mkdir || cat nonexistantfile || echo First two commands failed
   ```
   * here ls will try to display the contents of directories with the names "&", "echo", and "hi" up until the next correct connector where the command proceeds normally again
   
-4. Precedence operators will only work when at the very front of the command, of if it encapsulates the entire command i.e
+4. Precedence operators will only work when at the very front of the command, of if it encapsulates the entire command however nested parentheses will cause an error i.e
   ```
   $ (echo hi && failcommand) || echo hello
   $ (echo yes && ls || echo no && echo hello)
   ```
-  * these commands will run normally however,
+  * these commands will run normally, however
   
   ```
   $ failcommand || (echo hello && ls)
   $ (echo hi && echo hello) || (echo yes && echo no)
+  $ ((echo hi && echo hello) || ls) && ls
   ```
   * these commands will produce an error or the wrong output
   * In addition the parentheses cannot be used anywhere but for declaring precedence i.e.
