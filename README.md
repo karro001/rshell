@@ -81,7 +81,7 @@ $ mkdir || cat nonexistantfile || echo First two commands failed
   ```
   $ echo (); echo (hello); echo hello(); echo )(
   ```
-        * these commands will produce errors
+      * these commands will produce errors
   
 #How to run
 ```
