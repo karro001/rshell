@@ -50,9 +50,19 @@ mkdir || cat nonexistantfile || echo First two commands failed
   $ echo
   ```
   * this will print out a blank into the terminal
-
   
+3. Precedence operators will only work when at the very front of the command, of if it encapsulates the entire command i.e
+  ```
+  (echo hi && failcommand) || echo hello
+  (echo yes && ls || echo no && echo hello)
+  ```
+  * these command will run normally however,
   
+  '''
+  failcommand || (echo hello && ls)
+  (echo hi && echo hello) || (echo yes && echo no)
+  ```
+  * thse command with produce and error or the wrong output
 #How to run
 ```
 $ git clone https://github.com/yourusername/rshell.git
