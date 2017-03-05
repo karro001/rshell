@@ -58,7 +58,7 @@ mkdir || cat nonexistantfile || echo First two commands failed
   ```
   * these command will run normally however,
   
-  '''
+  ```
   failcommand || (echo hello && ls)
   (echo hi && echo hello) || (echo yes && echo no)
   ```
