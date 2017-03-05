@@ -1,0 +1,41 @@
+echo -------------------------------------
+echo using -e flag then an empty flag. 
+echo first using test, then brackets
+echo -------------------------------------
+test -e /src
+test /src
+[ -e /tests ]
+[ /tests ]
+echo -------------------------------------
+echo using -f flag with a TRUE then FALSE. 
+echo first with test, then brackets
+echo -------------------------------------
+test -f /src/rshell.cpp
+test -f /src
+[ -f /src/rshell.cpp ]
+[ -f /tests ]
+echo -------------------------------------
+echo using -d flag with a TRUE then FALSE.
+echo first with test, then brackets
+echo -------------------------------------
+test -d /src
+test -d /src/rshell.cpp
+[ -d /tests ]
+[ -d /src/rshell.cpp ]
+echo -------------------------------------
+echo with connectors and comments
+echo -------------------------------------
+echo testing test; test -e /src && ls #COMMENT
+[ /src ] && test /src && [ -d /src ] && [ -f /src/rshell.cpp ]
+ls #test -f /src/rshell.cpp && echo checking path
+#test /tests && [ -f /src ] || echo hello
+failcommand || test -e /src/rshell.cpp
+mkdir testpath
+touch testfile.cpp
+test -d /testpath && echo directory testpath exists
+test -f /testfile.cpp && echo file testfile.cpp exists
+rm testfile.cpp
+rm -r testpath
+[ -d /testpath ] || echo directory testpath does not exist
+test -f /testfile.cpp || echo file testfile.cpp does not exist
+exit
