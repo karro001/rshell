@@ -36,7 +36,9 @@ int main()
     findDelim(line,delim);
     // delim.clear();
   
-    
+    if(line.find('(')!=string::npos || line.find('[')!= string::npos || line.find(']')!=string::npos || line.find(')')!=string::npos)
+      if(balancedPrecedence(line) == false)
+        goto input;
     begin:
     if(line.find("#") != string::npos)
     {
@@ -117,6 +119,7 @@ void cmd(const string &line,string delim, int& success){
     }
     copyDelim = delim;
     string temp = cpy.substr(0,cpy.find(delim));
+
     while(1){
       
       tempDelim = copyDelim;
